@@ -20,7 +20,7 @@ unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
 sudo ln -s /usr/local/scp-tool-cli-1.0.9/bin/scp-tool-cli /usr/local/bin/scp
 ```
 
-## 3. Usage
+## 3. CLI Usage
 
 ```Bash
 scp --help
