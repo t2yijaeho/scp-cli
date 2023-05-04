@@ -1,4 +1,4 @@
-# scp-cli
+# scp cli
 
 ## 1. Prerequisites
 
@@ -17,11 +17,11 @@ unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
 ```
 
 ```Bash
-sudo ln -s /usr/local/scp-tool-cli-1.0.9/bin/scp-tool-cli /usr/local/bin/scp
+sudo ln -s /usr/local/scp-tool-cli-1.0.9/bin/scp-tool-cli /usr/local/bin/scpc
 ```
 
 ## 3. CLI Usage
 
 ```Bash
-scp --help
+scpc --help
 ```
