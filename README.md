@@ -83,7 +83,7 @@ scpc iam list-access-keys-v2
 ```
 
 ```Bash
-ubuntu@SCP:~$ scpc iam list-access-keys-v2
+ubuntu@SCP:~$ scpc iam list-access-keys-v2 | jq
 {
   "totalCount": 1,
   "contents": [
