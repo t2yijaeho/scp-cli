@@ -21,7 +21,7 @@ unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
 ```
 
 ```Bash
-ubuntu@UBUNTU:~$ unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
+ubuntu@SCP:~$ unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
 Archive:  scp-tool-cli-1.0.9.zip
    creating: scp-tool-cli-1.0.9/
    creating: scp-tool-cli-1.0.9/lib/
@@ -67,11 +67,45 @@ scpc configure list
 ```
 
 ```Bash
-ubuntu@UBUNTU:~$ scpc configure list
+ubuntu@SCP:~$ scpc configure list
 [default]
 cmp-url=https://openapi.samsungsdscloud.com
 project-id=xxxxxxxxxxxxxxxxxxxx
 current-profile=default
 access-secret=xxxxxxxxxxxx
 access-key=xxxxxxxxxxxxx
+```
+
+Verify command
+
+```Bash
+scpc iam list-access-keys-v2
+```
+
+```Bash
+ubuntu@SCP:~/SCP-API$ node scp-api.js
+{
+  "totalCount": 1,
+  "contents": [
+    {
+      "accessKey": "accesskey",
+      "accessKeyActivated": true,
+      "accessKeyId": "accesskeyid",
+      "createdBy": "xxxxx",
+      "createdByEmail": "scp.support@samsung.com",
+      "createdByName": "SCP Support",
+      "createdDt": "2023-12-25T06:13:55.462Z",
+      "expiredDt": null,
+      "modifiedBy": "xxxxx",
+      "modifiedByEmail": "scp.support@samsung.com",
+      "modifiedByName": "SCP Support",
+      "modifiedDt": "2023-12-25T06:13:55.462Z",
+      "projectId": "",
+      "projectName": null
+    }
+  ],
+  "page": 0,
+  "size": 20,
+  "sort": null
+}
 ```
