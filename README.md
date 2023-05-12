@@ -83,7 +83,7 @@ scpc iam list-access-keys-v2
 ```
 
 ```Bash
-ubuntu@SCP:~$ node scp-api.js
+ubuntu@SCP:~$ scpc iam list-access-keys-v2
 {
   "totalCount": 1,
   "contents": [
