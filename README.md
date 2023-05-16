@@ -57,7 +57,7 @@ scpc configure set cmp-url https://openapi.samsungsdscloud.com
 scpc configure set current-profile default
 scpc configure set project-id <Project ID>
 scpc configure set access-key <Access Key>
-scpc configure set access-secret <Secret key>
+scpc configure set access-secret <Secret Key>
 ```
 
 List the configuration
@@ -109,3 +109,9 @@ ubuntu@SCP:~$ scpc iam list-access-keys-v2 | jq
   "sort": null
 }
 ```
+
+## 5. Using AWS CLI for SCP Object Storage
+
+***SCP Object Storage provide AWS S3 compatible APIs***
+
+- ***[SCP Object Storage with the AWS CLI](SCP-obs-with-aws-cli.md)***
