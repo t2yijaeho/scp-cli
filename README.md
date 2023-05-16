@@ -2,7 +2,7 @@
 
 ## 1. Prerequisites
 
-Install the Java Runtime Environment (JRE) to run CLI Java programs from the command line, the unzip utility to uncompress the CLI installation file
+Install the Java Runtime Environment (JRE) to run CLI Java programs from the command line, the unzip utility to uncompress the CLI installation file, JSON processor to query CLI output
 
 ```Bash
 sudo apt update && sudo apt install openjdk-8-jre unzip jq -y
@@ -93,7 +93,7 @@ ubuntu@SCP:~$ scpc iam list-access-keys-v2 | jq
       "accessKeyId": "accesskeyid",
       "createdBy": "xxxxx",
       "createdByEmail": "scp.support@samsung.com",
-      "createdByName": "SCP Support",
+      "**createdByName**": "SCP Support",
       "createdDt": "2023-12-25T06:13:55.462Z",
       "expiredDt": null,
       "modifiedBy": "xxxxx",
