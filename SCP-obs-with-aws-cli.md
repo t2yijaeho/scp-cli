@@ -2,15 +2,13 @@
 
 ## 1. Prerequisites
 
-- Install AWS CLI
+Before proceeding with the integration of Samsung Cloud Platform (SCP) Object Storage and the AWS Command Line Interface (CLI), please ensure that you have the AWS CLI installed on your system. If you haven't installed it yet, you can follow the instructions provided in the **[AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)** to install or update the latest version
 
-  [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+## 2. Obtain API information
 
-## 2. Get API information
+To obtain the necessary API information. Please refer to the SCP User Guide section on **[Utilizing the API](https://cloud.samsungsds.com/manual/en/scp_user_guide.html#utilizing_object_storage_api)** for detailed instructions.
 
-***Refer to SCP User Guide: [Utilizing the API](https://cloud.samsungsds.com/manual/en/scp_user_guide.html#utilizing_object_storage_api)***
-
-- List object storage bucket Name and bucket ID in comma seperated format
+### List object storage bucket Name and bucket ID in comma seperated format
 
 ```Bash
 scpc object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
@@ -22,12 +20,12 @@ ubuntu@T3XBC:~$ scpc object-storage list-bucket-v2 | jq -r '.contents[] | [.obsB
 "bucket-sds","S3_OBS_BUCKET-xxxxx"
 ```
 
-- Get desired bucket API URL and Credential(SCP Object Storage Access Key, Secret Key)
+### Retrieve the desired bucket's API URL and credentials(SCP Object Storage Access Key and Secret Key)
 
->***Replace `<Bucket ID>`
+>***Replace `<obsBucketId>`***
 
 ```Bash
-scpc object-storage read-api-info-v2 --obs-bucket-id <Bucket ID> | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
+scpc object-storage read-api-info-v2 --obs-bucket-id <obsBucketId> | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
 ```
 
 ```Bash
@@ -42,9 +40,9 @@ ubuntu@T3XBC:~$
 
 ***Refer to AWS CLI User Guide: [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)***
 
-- Set SCP Object Storage credential to AWS CLI configuration settings as profile named `scp`
+### Set SCP Object Storage credential to AWS CLI configuration settings as profile named ***`scp`***
 
->***Replace `<obsAccessKey>`, `obsSecretKey`
+>***Replace `<obsAccessKey>`, `<obsSecretKey>`***
 
 ```Bash
 aws configure set aws_access_key_id <obsAccessKey> --profile scp
@@ -61,11 +59,11 @@ secret_key     ****************xxxx shared-credentials-file
     region                <not set>             None    None
 ```
 
-## 4. Specifies API URL as AWS command line options
+## 4. Specify API URL as AWS Command Line Options
 
-- Listing buckets
+To list the buckets, specify the API URL using the following command
 
->***Replace `<obsRestEndpoint>`
+>***Replace `<obsRestEndpoint>`***
 
 ```Bash
 aws s3 ls --endpoint-url <obsRestEndpoint> --profile scp
@@ -77,17 +75,19 @@ ubuntu@T3XBC:~$ aws s3 ls --endpoint-url https://xxxxxx:xxxx --profile scp
 2023-05-08 18:27:36 bucket-sds
 ```
 
-- Set default profile to environment variable (Optional)
+### Set Default Profile as Environment Variable (Optional)
 
->To use a named profile for multiple commands, you can avoid specifying the profile in every command by setting the AWS_PROFILE environment variable as the default profile
+>To use the ***`scp`*** named profile for multiple commands without specifying it each time, you can set the AWS_PROFILE environment variable as the default profile
 
 ```Bash
 export AWS_PROFILE=scp
 ```
 
-- Create alias function to shell profile (Optional)
+### Create Alias Function to Shell Profile (Optional)
 
->Adding following code to shell profile automatically include `endpoint-url` option when running AWS S3 commands
+>You can add the following code to your shell profile to include the ***`--endpoint-url`*** option automatically when running AWS S3 commands
+
+>***Replace `<obsRestEndpoint>`***
 
 ```Bash
 aws() {
