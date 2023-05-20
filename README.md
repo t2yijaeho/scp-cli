@@ -58,7 +58,7 @@ scpc --help
 ## 4. Configuration
 
 Configure CLI authenticating information
->***Replace `<Project ID>, <Access Key>, <Secret key>`***
+>***Replace `<Project ID>`, `<Access Key>`, `<Secret key>`***
 
 ```Bash
 scpc configure set cmp-url https://openapi.samsungsdscloud.com
