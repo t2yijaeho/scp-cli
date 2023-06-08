@@ -19,32 +19,32 @@ sudo apt update && sudo apt install openjdk-8-jre unzip jq -y
 Download the CLI installation file
 
 ```Bash
-wget https://github.com/t2yijaeho/scp-cli/raw/matia/scp-tool-cli-1.0.9.zip
+wget https://github.com/t2yijaeho/scp-cli/raw/matia/scp-tool-cli-1.0.10.zip
 ```
 
 Extract the downloaded file to the ***`/usr/local`*** directory
 
 ```Bash
-unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
+unzip scp-tool-cli-1.0.10.zip && sudo mv scp-tool-cli-1.0.10 /usr/local/
 ```
 
 ```Bash
-ubuntu@SCP:~$ unzip scp-tool-cli-1.0.9.zip && sudo mv scp-tool-cli-1.0.9 /usr/local/
-Archive:  scp-tool-cli-1.0.9.zip
-   creating: scp-tool-cli-1.0.9/
-   creating: scp-tool-cli-1.0.9/lib/
-  inflating: scp-tool-cli-1.0.9/lib/scp-tool-cli-1.0.9.jar
-   creating: scp-tool-cli-1.0.9/bin/
-  inflating: scp-tool-cli-1.0.9/bin/scp-tool-cli
-  inflating: scp-tool-cli-1.0.9/bin/scp-tool-cli.bat
-   creating: scp-tool-cli-1.0.9/license/
-  inflating: scp-tool-cli-1.0.9/license/scp-tool-cli 오픈소스고지문.txt
+ubuntu@SCP:~$ unzip scp-tool-cli-1.0.10.zip && sudo mv scp-tool-cli-1.0.10 /usr/local/
+Archive:  scp-tool-cli-1.0.10.zip
+   creating: scp-tool-cli-1.0.10/
+   creating: scp-tool-cli-1.0.10/lib/
+  inflating: scp-tool-cli-1.0.10/lib/scp-tool-cli-1.0.10.jar
+   creating: scp-tool-cli-1.0.10/bin/
+  inflating: scp-tool-cli-1.0.10/bin/scp-tool-cli
+  inflating: scp-tool-cli-1.0.10/bin/scp-tool-cli.bat
+   creating: scp-tool-cli-1.0.10/license/
+  inflating: scp-tool-cli-1.0.10/license/scp-tool-cli 오픈소스고지문.txt
 ```
 
-Create a symbolic link named ***`scpc`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.9/bin`*** directory
+Create a symbolic link named ***`scpc`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.10/bin`*** directory
 
 ```Bash
-sudo ln -s /usr/local/scp-tool-cli-1.0.9/bin/scp-tool-cli /usr/local/bin/scpc
+sudo ln -s /usr/local/scp-tool-cli-1.0.10/bin/scp-tool-cli /usr/local/bin/scpc
 ```
 
 ## 3. Usage
