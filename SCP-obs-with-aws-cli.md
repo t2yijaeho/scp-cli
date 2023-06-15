@@ -11,11 +11,11 @@ To obtain the necessary API information. Please refer to the SCP User Guide sect
 ### List object storage bucket Name and bucket ID in comma seperated format
 
 ```Bash
-scpc object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
+scloud object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
 ```
 
 ```Bash
-ubuntu@T3XBC:~$ scpc object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
+ubuntu@SCP:~$ scloud object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
 "bucket-scp","S3_OBS_BUCKET-xxxxx"
 "bucket-sds","S3_OBS_BUCKET-xxxxx"
 ```
@@ -25,15 +25,15 @@ ubuntu@T3XBC:~$ scpc object-storage list-bucket-v2 | jq -r '.contents[] | [.obsB
 >***Replace `<obsBucketId>`***
 
 ```Bash
-scpc object-storage read-api-info-v2 --obs-bucket-id <obsBucketId> | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
+scloud object-storage read-api-info-v2 --obs-bucket-id <obsBucketId> | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
 ```
 
 ```Bash
-ubuntu@T3XBC:~$ scpc object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCKET-d_B7NSO7r1bRoRj6Ey_Hch | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
+ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCKET-d_B7NSO7r1bRoRj6Ey_Hch | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
 "https://objxx.kr-west-xx.samsungsdscloud.com:xxxx"
 "xxxxxxxxxxxxxx"
 "xxxxxxxxxxxxxxxxxx"
-ubuntu@T3XBC:~$
+ubuntu@SCP:~$
 ```
 
 ## 3. Configure AWS CLI
@@ -50,7 +50,7 @@ aws configure set aws_secret_access_key <obsSecretKey> --profile scp
 ```
 
 ```Bash
-ubuntu@T3XBC:~$ aws configure list --profile scp
+ubuntu@SCP:~$ aws configure list --profile scp
       Name                    Value             Type    Location
       ----                    -----             ----    --------
    profile                      scp           manual    --profile
@@ -70,7 +70,7 @@ aws s3 ls --endpoint-url <obsRestEndpoint> --profile scp
 ```
 
 ```Bash
-ubuntu@T3XBC:~$ aws s3 ls --endpoint-url https://xxxxxx:xxxx --profile scp
+ubuntu@SCP:~$ aws s3 ls --endpoint-url https://xxxxxx:xxxx --profile scp
 2023-05-05 12:34:56 bucket-scp
 2023-05-08 18:27:36 bucket-sds
 ```

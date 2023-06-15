@@ -41,10 +41,10 @@ Archive:  scp-tool-cli-1.0.10.zip
   inflating: scp-tool-cli-1.0.10/license/scp-tool-cli 오픈소스고지문.txt
 ```
 
-Create a symbolic link named ***`scpc`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.10/bin`*** directory
+Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.10/bin`*** directory
 
 ```Bash
-sudo ln -s /usr/local/scp-tool-cli-1.0.10/bin/scp-tool-cli /usr/local/bin/scpc
+sudo ln -s /usr/local/scp-tool-cli-1.0.10/bin/scp-tool-cli /usr/local/bin/scloud
 ```
 
 ## 3. Usage
@@ -52,7 +52,7 @@ sudo ln -s /usr/local/scp-tool-cli-1.0.10/bin/scp-tool-cli /usr/local/bin/scpc
 To use the CLI command, consult the help and [CLI guide](https://cloud.samsungsds.com/openapiguide/#/docs/v2-en-overview-overview) in the SCP console
 
 ```Bash
-scpc --help
+scloud --help
 ```
 
 ## 4. Configuration
@@ -61,21 +61,21 @@ Configure CLI authenticating information
 >***Replace `<Project ID>`, `<Access Key>`, `<Secret key>`***
 
 ```Bash
-scpc configure set cmp-url https://openapi.samsungsdscloud.com
-scpc configure set current-profile default
-scpc configure set project-id <Project ID>
-scpc configure set access-key <Access Key>
-scpc configure set access-secret <Secret Key>
+scloud configure set cmp-url https://openapi.samsungsdscloud.com
+scloud configure set current-profile default
+scloud configure set project-id <Project ID>
+scloud configure set access-key <Access Key>
+scloud configure set access-secret <Secret Key>
 ```
 
 Use the following command to list the configured information
 
 ```Bash
-scpc configure list
+scloud configure list
 ```
 
 ```Bash
-ubuntu@SCP:~$ scpc configure list
+ubuntu@SCP:~$ scloud configure list
 [default]
 cmp-url=https://openapi.samsungsdscloud.com
 project-id=xxxxxxxxxxxxxxxxxxxx
@@ -87,11 +87,11 @@ access-key=xxxxxxxxxxxxx
 To verify the configuration of the CLI, you can use the following command to list the access keys
 
 ```Bash
-scpc iam list-access-keys-v2
+scloud iam list-access-keys-v2
 ```
 
 ```Bash
-ubuntu@SCP:~$ scpc iam list-access-keys-v2 | jq
+ubuntu@SCP:~$ scloud iam list-access-keys-v2 | jq
 {
   "totalCount": 1,
   "contents": [
