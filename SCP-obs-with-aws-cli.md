@@ -77,7 +77,7 @@ ubuntu@SCP:~$ aws s3 ls --endpoint-url https://xxxxxx:xxxx --profile scp
 
 ### Set Default Profile as Environment Variable (Optional)
 
->To use the ***`scp`*** named profile for multiple commands without specifying it each time, you can set the AWS_PROFILE environment variable as the default profile
+To use the ***`scp`*** named profile for multiple commands without specifying it each time, you can set the AWS_PROFILE environment variable as the default profile
 
 ```Bash
 export AWS_PROFILE=scp
@@ -85,7 +85,7 @@ export AWS_PROFILE=scp
 
 ### Create Alias Function to Shell Profile (Optional)
 
->You can add the following code to your shell profile to include the ***`--endpoint-url`*** option automatically when running AWS S3 commands
+You can add the following code to your shell profile to include the ***`--endpoint-url`*** option automatically when running AWS S3 commands
 
 >***Replace `<obsRestEndpoint>`***
 
