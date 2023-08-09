@@ -19,32 +19,32 @@ sudo apt update && sudo apt install openjdk-8-jre unzip jq -y
 Download the CLI installation file
 
 ```Bash
-wget https://github.com/t2yijaeho/scp-cli/raw/matia/scp-tool-cli-1.0.10-r1.zip
+wget https://github.com/t2yijaeho/scp-cli/raw/matia/scp-tool-cli-1.0.11.zip
 ```
 
 Extract the downloaded file to the ***`/usr/local`*** directory
 
 ```Bash
-unzip scp-tool-cli-1.0.10-r1.zip && sudo mv scp-tool-cli-1.0.10 /usr/local/
+unzip scp-tool-cli-1.0.11.zip && sudo mv scp-tool-cli-1.0.11 /usr/local/
 ```
 
 ```Bash
-ubuntu@SCP:~$ unzip scp-tool-cli-1.0.10-r1.zip && sudo mv scp-tool-cli-1.0.10-r1 /usr/local/
-Archive:  scp-tool-cli-1.0.10-r1.zip
-   creating: scp-tool-cli-1.0.10-r1/
-   creating: scp-tool-cli-1.0.10-r1/lib/
-  inflating: scp-tool-cli-1.0.10-r1/lib/scp-tool-cli-1.0.10.jar
-   creating: scp-tool-cli-1.0.10-r1/bin/
-  inflating: scp-tool-cli-1.0.10-r1/bin/scp-tool-cli
-  inflating: scp-tool-cli-1.0.10-r1/bin/scp-tool-cli.bat
-   creating: scp-tool-cli-1.0.10-r1/license/
-  inflating: scp-tool-cli-1.0.10-r1/license/scp-tool-cli 오픈소스고지문.txt
+ubuntu@SCP:~$ unzip scp-tool-cli-1.0.11.zip && sudo mv scp-tool-cli-1.0.11 /usr/local/
+Archive:  scp-tool-cli-1.0.11.zip
+   creating: scp-tool-cli-1.0.11/
+   creating: scp-tool-cli-1.0.11/lib/
+  inflating: scp-tool-cli-1.0.11/lib/scp-tool-cli-1.0.11.jar
+   creating: scp-tool-cli-1.0.11/bin/
+  inflating: scp-tool-cli-1.0.11/bin/scp-tool-cli
+  inflating: scp-tool-cli-1.0.11/bin/scp-tool-cli.bat
+   creating: scp-tool-cli-1.0.11/license/
+  inflating: scp-tool-cli-1.0.11/license/scp-tool-cli 오픈소스고지문.txt
 ```
 
-Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.10-r1/bin`*** directory
+Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.11/bin`*** directory
 
 ```Bash
-sudo ln -s /usr/local/scp-tool-cli-1.0.10-r1/bin/scp-tool-cli /usr/local/bin/scloud
+sudo ln -s /usr/local/scp-tool-cli-1.0.11/bin/scp-tool-cli /usr/local/bin/scloud
 ```
 
 ## 3. Usage
