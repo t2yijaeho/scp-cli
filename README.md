@@ -10,7 +10,7 @@ Before using the SCP Command Line Interface (CLI), ensure that the following dep
 
 To install these dependencies, execute the following command
 
-```Bash
+```sh
 sudo apt update && sudo apt install openjdk-8-jre unzip jq -y
 ```
 
@@ -18,17 +18,17 @@ sudo apt update && sudo apt install openjdk-8-jre unzip jq -y
 
 Download the CLI installation file
 
-```Bash
+```sh
 wget https://github.com/t2yijaeho/scp-cli/raw/matia/scp-tool-cli-1.0.11.zip
 ```
 
 Extract the downloaded file to the ***`/usr/local`*** directory
 
-```Bash
+```sh
 unzip scp-tool-cli-1.0.11.zip && sudo mv scp-tool-cli-1.0.11 /usr/local/
 ```
 
-```Bash
+```sh
 ubuntu@SCP:~$ unzip scp-tool-cli-1.0.11.zip && sudo mv scp-tool-cli-1.0.11 /usr/local/
 Archive:  scp-tool-cli-1.0.11.zip
    creating: scp-tool-cli-1.0.11/
@@ -43,7 +43,7 @@ Archive:  scp-tool-cli-1.0.11.zip
 
 Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.11/bin`*** directory
 
-```Bash
+```sh
 sudo ln -s /usr/local/scp-tool-cli-1.0.11/bin/scp-tool-cli /usr/local/bin/scloud
 ```
 
@@ -51,7 +51,7 @@ sudo ln -s /usr/local/scp-tool-cli-1.0.11/bin/scp-tool-cli /usr/local/bin/scloud
 
 To use the CLI command, consult the help and [CLI guide](https://cloud.samsungsds.com/openapiguide/#/docs/v2-en-overview-overview) in the SCP console
 
-```Bash
+```sh
 scloud --help
 ```
 
@@ -60,7 +60,7 @@ scloud --help
 Configure CLI authenticating information
 >***Replace `<Project ID>`, `<Access Key>`, `<Secret key>`***
 
-```Bash
+```sh
 scloud configure set cmp-url https://openapi.samsungsdscloud.com
 scloud configure set current-profile default
 scloud configure set project-id <Project ID>
@@ -70,11 +70,11 @@ scloud configure set access-secret <Secret Key>
 
 Use the following command to list the configured information
 
-```Bash
+```sh
 scloud configure list
 ```
 
-```Bash
+```sh
 ubuntu@SCP:~$ scloud configure list
 [default]
 cmp-url=https://openapi.samsungsdscloud.com
@@ -86,11 +86,11 @@ access-key=xxxxxxxxxxxxx
 
 To verify the configuration of the CLI, you can use the following command to list the access keys
 
-```Bash
+```sh
 scloud iam list-access-keys-v2
 ```
 
-```Bash
+```json
 ubuntu@SCP:~$ scloud iam list-access-keys-v2 | jq
 {
   "totalCount": 1,
