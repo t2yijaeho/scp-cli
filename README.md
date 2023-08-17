@@ -62,6 +62,7 @@ Configure CLI authenticating information
 
 ```sh
 scloud configure set cmp-url https://openapi.samsungsdscloud.com
+scloud configure set host https://openapi.samsungsdscloud.com
 scloud configure set current-profile default
 scloud configure set project-id <Project ID>
 scloud configure set access-key <Access Key>
@@ -78,6 +79,7 @@ scloud configure list
 ubuntu@SCP:~$ scloud configure list
 [default]
 cmp-url=https://openapi.samsungsdscloud.com
+host=https://openapi.samsungsdscloud.com
 project-id=xxxxxxxxxxxxxxxxxxxx
 current-profile=default
 access-secret=xxxxxxxxxxxx
