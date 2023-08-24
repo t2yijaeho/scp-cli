@@ -33,7 +33,6 @@ ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCK
 "https://objxx.kr-west-xx.samsungsdscloud.com:xxxx"
 "xxxxxxxxxxxxxx"
 "xxxxxxxxxxxxxxxxxx"
-ubuntu@SCP:~$
 ```
 
 ## 3. Configure AWS CLI
