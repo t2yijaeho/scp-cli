@@ -30,7 +30,7 @@ scloud object-storage read-api-info-v2 --obs-bucket-id <obsBucketId> | jq '.obsR
 
 ```sh
 ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCKET-d_B7NSO7r1bRoRj6Ey_Hch | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
-"https://objxx.kr-west-xx.samsungsdscloud.com:xxxx"
+"https://objxx.kr-xxx-xx.samsungsdscloud.com:xxxx"
 "xxxxxxxxxxxxxx"
 "xxxxxxxxxxxxxxxxxx"
 ```
@@ -90,7 +90,7 @@ You can add the following code to your shell profile to include the ***`--endpoi
 
 ```sh
 aws() {
-    if [ "$1" == "s3" ]; then
+    if [ "$1" == "s3" ] || [ "$1" == "s3api" ] || [ "$1" == "s3control" ]; then
         command aws --endpoint-url <obsRestEndpoint> "$@"
     else
         command aws "$@"
