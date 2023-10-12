@@ -120,8 +120,39 @@ ubuntu@SCP:~$ scloud iam list-access-keys-v2 | jq
 }
 ```
 
-## 5. Using AWS CLI for SCP Object Storage
+## 5. SCP Object Storage using S3 API
 
-***SCP Object Storage provide AWS S3 compatible APIs***
+SCP Object Storage provides a simple and scalable cloud storage service that is compatible with the S3 APIs. You can use any of the S3 compatible tools to manage your SCP Object Storage buckets and objects.
 
-- ***[SCP Object Storage with the AWS CLI](SCP-obs-with-aws-cli.md)***
+### Obtain API information
+
+To obtain the necessary API information. Please refer to the SCP User Guide section on **[Utilizing the API](https://cloud.samsungsds.com/manual/en/scp_user_guide.html#utilizing_object_storage_api)** for detailed instructions.
+
+List object storage bucket Name and bucket ID in comma seperated format
+
+```sh
+scloud object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
+```
+
+```sh
+ubuntu@SCP:~$ scloud object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
+"bucket-scp","S3_OBS_BUCKET-xxxxx"
+"bucket-sds","S3_OBS_BUCKET-xxxxx"
+```
+
+Retrieve the desired bucket's API URL and credentials(SCP Object Storage Access Key and Secret Key)
+
+>***Replace `<obsBucketId>`***
+
+```sh
+scloud object-storage read-api-info-v2 --obs-bucket-id <obsBucketId> | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
+```
+
+```sh
+ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCKET-xxxxx | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
+"https://objxx.kr-xxx-xx.samsungsdscloud.com:xxxx"
+"xxxxxxxxxxxxxx"
+"xxxxxxxxxxxxxxxxxx"
+```
+
+### - ***[SCP Object Storage with the AWS CLI](SCP-obs-with-aws-cli.md)***

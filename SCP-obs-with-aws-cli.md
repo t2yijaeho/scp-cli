@@ -4,38 +4,7 @@
 
 Before proceeding with the integration of Samsung Cloud Platform (SCP) Object Storage and the AWS Command Line Interface (CLI), please ensure that you have the AWS CLI installed on your system. If you haven't installed it yet, you can follow the instructions provided in the **[AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)** to install or update the latest version
 
-## 2. Obtain API information
-
-To obtain the necessary API information. Please refer to the SCP User Guide section on **[Utilizing the API](https://cloud.samsungsds.com/manual/en/scp_user_guide.html#utilizing_object_storage_api)** for detailed instructions.
-
-### List object storage bucket Name and bucket ID in comma seperated format
-
-```sh
-scloud object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
-```
-
-```sh
-ubuntu@SCP:~$ scloud object-storage list-bucket-v2 | jq -r '.contents[] | [.obsBucketName, .obsBucketId] | @csv'
-"bucket-scp","S3_OBS_BUCKET-xxxxx"
-"bucket-sds","S3_OBS_BUCKET-xxxxx"
-```
-
-### Retrieve the desired bucket's API URL and credentials(SCP Object Storage Access Key and Secret Key)
-
->***Replace `<obsBucketId>`***
-
-```sh
-scloud object-storage read-api-info-v2 --obs-bucket-id <obsBucketId> | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
-```
-
-```sh
-ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCKET-d_B7NSO7r1bRoRj6Ey_Hch | jq '.obsRestEndpoint, .obsAccessKey, .obsSecretKey'
-"https://objxx.kr-xxx-xx.samsungsdscloud.com:xxxx"
-"xxxxxxxxxxxxxx"
-"xxxxxxxxxxxxxxxxxx"
-```
-
-## 3. Configure AWS CLI
+## 2. Configure AWS CLI
 
 ***Refer to AWS CLI User Guide: [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)***
 
@@ -58,7 +27,7 @@ secret_key     ****************xxxx shared-credentials-file
     region                <not set>             None    None
 ```
 
-## 4. Specify API URL as AWS Command Line Options
+## 3. Specify API URL as AWS Command Line Options
 
 To list the buckets, specify the API URL using the following command
 
