@@ -1,8 +1,8 @@
-# Samsung Cloud Platform (SCP) Object Storage with the AWS CLI
+# Samsung Cloud Platform (SCP) Object Storage using the AWS CLI
 
-## 1. Prerequisites
+## 1. Install AWS CLI
 
-Before proceeding with the integration of Samsung Cloud Platform (SCP) Object Storage and the AWS Command Line Interface (CLI), please ensure that you have the AWS CLI installed on your system. If you haven't installed it yet, you can follow the instructions provided in the **[AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)** to install or update the latest version
+You can follow the instructions provided in the **[AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)** to install or update the latest version
 
 ## 2. Configure AWS CLI
 
