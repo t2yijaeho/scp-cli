@@ -2,6 +2,8 @@
 
 Samsung Cloud Platform (SCP) Object Storage is a robust, scalable, and secure service that allows you to store and manage vast amounts of data. With the MinIO CLI, you can easily manage your SCP Object Storage right from your command line, providing you with powerful control over your data
 
+[MinIO CLI Quickstart](https://min.io/docs/minio/linux/reference/minio-mc.html#quickstart)
+
 ## 1. Install the MinIO CLI
 
 ### Download, Change permission, move to local binary directory
@@ -37,7 +39,7 @@ License GNU AGPLv3 <https://www.gnu.org/licenses/agpl-3.0.html>
 ubuntu@scp:~$
 ```
 
-## 2. Configure MinIO CLI
+## 2. Configure the MinIO CLI
 
 ### Create an alias to config Endpoint URL, Access key ID, Secret Access Key
 
@@ -126,6 +128,8 @@ ubuntu@scp:~$
 
 ### Copy, List, and Remove Objects
 
+***You can not only transfer data between your local system and SCP but also seamlessly move data between SCP and other object storage service providers like AWS, GCP, and MinIO. It's all about simplifying your data management***
+
 ```sh
 mc ls
 mc cp --recursive ./* scp/bk-minio/
@@ -183,7 +187,8 @@ mc head scp/bk-minio/third.txt
 
 ```sh
 ubuntu@scp:~/minio$ echo "Third Text" | mc pipe scp/bk-minio/third.txt
- 0 B / ? ━┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉━━ubuntu@scp:~/minio$ mc ls scp/bk-minio/
+ 0 B / ? ━┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉━━
+ubuntu@scp:~/minio$ mc ls scp/bk-minio/
 [2023-10-03 13:22:28 KST]     0B STANDARD first.md
 [2023-10-03 13:22:28 KST]     0B STANDARD second.md
 [2023-10-13 13:58:28 KST]    11B STANDARD third.txt
