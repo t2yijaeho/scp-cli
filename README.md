@@ -38,7 +38,7 @@ Archive:  scp-tool-cli-1.0.15.zip
   inflating: scp-tool-cli-1.0.15/bin/scp-tool-cli
   inflating: scp-tool-cli-1.0.15/bin/scp-tool-cli.bat
    creating: scp-tool-cli-1.0.15/license/
-  inflating: scp-tool-cli-1.0.15/license/scp-tool-cli 오픈소스고지문.txt
+  inflating: scp-tool-cli-1.0.15/license/scp-tool-cli-LICENSE.txt
 ```
 
 Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.15/bin`*** directory
@@ -158,3 +158,5 @@ ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCK
 ### - ***[SCP Object Storage using the AWS CLI](scp-obs-using-aws-cli.md)***
 
 ### - ***[SCP Object Storage using the MinIO CLI](scp-obs-using-minio-cli.md)***
+
+### - ***[SCP Object Storage using the s5cmd](scp-obs-using-s5cmd.md)***
