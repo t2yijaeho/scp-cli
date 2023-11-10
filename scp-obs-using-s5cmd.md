@@ -101,5 +101,26 @@ ubuntu@machine:~$ s5cmd ls
 ubuntu@machine:~$
 ```
 
-## 3. s5cmd Commands
+## 3. [Configuring Concurrency](https://github.com/peak/s5cmd/blob/master/README.md#configuring-concurrency)
 
+### numworkers
+
+> `numworkers` is a global option that sets the size of the global worker pool. Default value is `256`
+
+`--numworkers` is set to 10, then `s5cmd` will limit the number of files concurrently uploaded to 10
+
+```sh
+s5cmd --numworkers 10 cp '/Users/foo/bar/*' s3://mybucket/foo/bar/
+```
+
+### concurrency
+
+>`concurrency` is a `cp` command option. It sets the number of parts that will be uploaded or downloaded in parallel for a single file. Default value of `concurrency` is `5`.
+
+`numworkers` and `concurrency` options can be used together:
+
+```
+s5cmd --numworkers 10 cp --concurrency 10 '/Users/foo/bar/*' s3://mybucket/foo/bar/
+```
+
+>If you have a few, large files to download, setting `--numworkers` to a very high value will not affect download speed. In this scenario setting `--concurrency` to a higher value may have a better impact on the download speed.
