@@ -160,3 +160,5 @@ ubuntu@SCP:~$ scloud object-storage read-api-info-v2 --obs-bucket-id S3_OBS_BUCK
 ### - ***[SCP Object Storage using the MinIO CLI](scp-obs-using-minio-cli.md)***
 
 ### - ***[SCP Object Storage using the s5cmd](scp-obs-using-s5cmd.md)***
+
+### - ***[SCP Object Storage Performance](scp-obs-performance.md)***
