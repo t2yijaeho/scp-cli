@@ -11,7 +11,7 @@ Before using the SCP Command Line Interface (CLI), ensure that the following dep
 To install these dependencies, execute the following command
 
 ```sh
-sudo apt update && sudo apt install openjdk-11-jre-headless unzip jq -y
+sudo apt update && sudo apt install openjdk-17-jre-headless unzip jq -y
 ```
 
 ## 2. Download and Installation
@@ -19,32 +19,32 @@ sudo apt update && sudo apt install openjdk-11-jre-headless unzip jq -y
 Download the CLI installation file
 
 ```sh
-wget https://github.com/t2yijaeho/scp-cli/raw/matia/releases/scp-tool-cli-1.0.15.zip
+wget https://github.com/t2yijaeho/scp-cli/raw/matia/releases/scp-tool-cli-2.0.0.zip
 ```
 
 Extract the downloaded file to the ***`/usr/local`*** directory
 
 ```sh
-unzip scp-tool-cli-1.0.15.zip && sudo mv scp-tool-cli-1.0.15 /usr/local/
+unzip scp-tool-cli-2.0.0.zip && sudo mv scp-tool-cli-2.0.0 /usr/local/
 ```
 
 ```sh
-ubuntu@SCP:~$ unzip scp-tool-cli-1.0.15.zip && sudo mv scp-tool-cli-1.0.15 /usr/local/
-Archive:  scp-tool-cli-1.0.15.zip
-   creating: scp-tool-cli-1.0.15/
-   creating: scp-tool-cli-1.0.15/lib/
-  inflating: scp-tool-cli-1.0.15/lib/scp-tool-cli-1.0.15.jar
-   creating: scp-tool-cli-1.0.15/bin/
-  inflating: scp-tool-cli-1.0.15/bin/scp-tool-cli
-  inflating: scp-tool-cli-1.0.15/bin/scp-tool-cli.bat
-   creating: scp-tool-cli-1.0.15/license/
-  inflating: scp-tool-cli-1.0.15/license/scp-tool-cli-LICENSE.txt
+ubuntu@SCP:~$ unzip scp-tool-cli-2.0.0.zip && sudo mv scp-tool-cli-2.0.0 /usr/local/
+Archive:  scp-tool-cli-2.0.0.zip
+   creating: scp-tool-cli-2.0.0/
+   creating: scp-tool-cli-2.0.0/lib/
+  inflating: scp-tool-cli-2.0.0/lib/scp-tool-cli-2.0.0.jar
+   creating: scp-tool-cli-2.0.0/bin/
+  inflating: scp-tool-cli-2.0.0/bin/scp-tool-cli
+  inflating: scp-tool-cli-2.0.0/bin/scp-tool-cli.bat
+   creating: scp-tool-cli-2.0.0/license/
+  inflating: scp-tool-cli-2.0.0/license/scp-tool-cli-LICENSE.txt
 ```
 
-Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-1.0.15/bin`*** directory
+Create a symbolic link named ***`scloud`*** in the ***`/usr/local/bin`*** directory that points to the scp-tool-cli binary in the ***`/usr/local/scp-tool-cli-2.0.0/bin`*** directory
 
 ```sh
-sudo ln -s /usr/local/scp-tool-cli-1.0.15/bin/scp-tool-cli /usr/local/bin/scloud
+sudo ln -s /usr/local/scp-tool-cli-2.0.0/bin/scp-tool-cli /usr/local/bin/scloud
 ```
 
 ## 3. Usage
@@ -89,34 +89,39 @@ access-key=xxxxxxxxxxxxx
 To verify the configuration of the CLI, you can use the following command to list the access keys
 
 ```sh
-scloud iam list-access-keys-v2
+scloud iam list-access-keys-v3
 ```
 
 ```json
-ubuntu@SCP:~$ scloud iam list-access-keys-v2 | jq
+ubuntu@SCP:~$ scloud iam list-access-keys-v3 | jq
 {
   "totalCount": 1,
   "contents": [
     {
-      "accessKey": "accesskey",
+      "accessKey": "xxxxx",
       "accessKeyActivated": true,
-      "accessKeyId": "accesskeyid",
+      "accessKeyId": "ACCESSKEY-xxxxx",
+      "accessKeyState": "ACTIVATED",
       "createdBy": "xxxxx",
       "createdByEmail": "scp.support@samsung.com",
-      "**createdByName**": "SCP Support",
-      "createdDt": "2023-12-25T06:13:55.462Z",
-      "expiredDt": null,
+      "createdByName": "SCP Support",
+      "createdDt": "2024-03-11T23:25:07.383Z",
+      "expiredDt": "2024-04-13T23:25:07.384Z",
       "modifiedBy": "xxxxx",
       "modifiedByEmail": "scp.support@samsung.com",
       "modifiedByName": "SCP Support",
-      "modifiedDt": "2023-12-25T06:13:55.462Z",
+      "modifiedDt": "2024-03-11T23:25:07.383Z",
       "projectId": "",
-      "projectName": null
+      "projectName": null,
+      "secretVaultCount": 0
     }
   ],
   "page": 0,
   "size": 20,
-  "sort": null
+  "sort": [
+    "blockedState",
+    "createdDt:desc"
+  ]
 }
 ```
 
